@@ -404,9 +404,5 @@ main() ：
     2. 折半查找(使用Arrays.binarySearch函数功能实现折半)
     3. 使用查表法，实现进制转换
 
-## copy 类的全名：
 
-**copy Qualified name**
-
-## 复制其他工程，需要改动根目录索引
-* 当复制了其他工程，重新创建后，需要在新创建的工程文件右击properties → myeclipse → web → web content-root → /xxxx ，将新建的工程名写入
+    

@@ -41,15 +41,3 @@
 * 如何在myeclipse中创建dynamic web project:
 
     已解决：file—new-project—勾选“Show all wizard”—web—下拉菜单中就出现了Dynamic Web Project的选项。
-
-
-
-## copy 类的全名：
-
-**copy Qualified name**
-
-
-## .getclass 和 .class
-
-* getClass（）是一个类的实例所具备的方法，而class（）方法是一个类的方法。 
-另外getClass（）是在运行时才确定的，而class（）方法是在编译时就确定了。

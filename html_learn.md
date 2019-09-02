@@ -1,138 +1,7 @@
-## request & response
-* request: 是浏览器向服务区发送；
-* response: 是服务器向浏览器发送。
-
-1. 超链接的作用：
-    1. request 即请求，浏览器向服务器发送请求。
-    2. response 即响应，服务器向浏览器响应请求。
-
-2. B/S系统，每一个请求对应一个相应。
-
-    B --请求-→ S
-
-    S --响应-→ B
-
-3. 用户点击超链接(href)和用户在浏览器地址栏上直接输入URL，有什么区别？
-
-    本质上是没有区别的，都是浏览器向服务器发生请求。
-
-    从操作上讲，超链接更方便。
-
-* 注意：**超链接也可以提交数据给服务器，但是提交的数据是固定不变的。超链接是get请求。不是post请求。**
-
-
-## form 表单
-    1. 表单的作用：
-        收集用户信息，表单展现后，用户填写表单，点击提交按钮提交数据给服务器。
-
-    2. 如何绘制表单？
-        form标签。
-
-    3. 一个网页可以有多个表单form。
-
-    4，表单最终是需要提交给服务器的，
-        action属性用来指定数据提交给哪个服务器。
-        action属性和超链接中的href属性一样，都可以向服务器发生请求(request)
-        如：<form action="http://192.168.120:8080/oa/save">
-        http://192.168.120:8080/oa/save 这是请求路径，最终提交到该路径的8080端口号上的/oa/save内。
-
-    5. form的两个特有标签：
-        
-        1. submit标签
-            注意，input内部的数据，必须包含name属性，才可以提交到对应请求位置。
-            (value 可以不写，当没有value时，value默认值是空字符串""，会将空字符串提交给服务器。java代码得到的是 ： String username = "";)
-
-            <input type="submit" name="username" value="jackson" />
-             <input type="submit" name="userpwd" value="111" />
-            提交到前面的路径位置中。
-
-            显示：http://192.168.120:8080/oa/save?username=jackson&userpwd=111&...
-
-* HTTP协议规定的，必须以下面的格式提交给服务器。
-
-**格式：action?name=value&name=value&...**
-    
-        2. reset标签
-
-    6. form表单method属性：
-        1. get
-        采用get方法提交的时候，用户提交的信息会显示在浏览器的地址栏上。
-
-        2. post
-        用post提交数据，其信息不回显示在浏览器地址栏上。
-
-        当用户提交有敏感信息，例如，密码，建议使用post方式提交。
-
-        method 属性不指定时，或者指定的是get时，这种情况下都是get。
-        只有当method属性指定为Post时，才是post请求。
-
-* **注意：任何的未指定post提交方式，默认都是get方式。**
-
-
 ## 标签
 
-### id 属性
-* id ：在html文档中，任何元素(节点)都有id属性，id属性是该节点的唯一标识，所以在同一个html文档中，id不能重复。
-
-* 注意：表单提交数据中，只和name有关，而与id无关。
-
-* id属性的作用：
-
-        javascript 语言：可以对html文档中的任意节点进行增删改查，那么在增删改之前，要拿到该节点，通过id获取节点对象。
-        id的存在让我们获取元素更加方便。
-
-* html 与 id 是节点和树的关系。
-
-        javascript 主要就是对这棵DOM(document)树上的节点进行增删改。
-
-
-### div 和 span 
-
-* div 和 span 都可以称为"图层"，图层就是一个一个盒子，div就是盒子嵌套盒子。
-
-* 图层的作用是为了保证页面灵活的布局，最早采用的是table进行布局，但是table布局太过死板。现代的网页开发中div布局使用最多，几乎很少使用table来进行布局。
-
-* div 和 span 是可以定位的，只要定下div的左上角的x轴和y轴即可。
-
-* div和span的区别？
-        div独自占用一行(默认)
-        span不会独占一行。
-
-
-
-* radio ：单选框，对于两个同样属性的值，即name相同，可以实现二选一，多选一的功能。
-
-* checkbox
-
 * label ：对label 元素点击文本标签，会触发内部控件。实现关联功能。
-```
-    label标签的两种使用方式：
-    1. <label for="txt">姓名：</label><input type="text" id="txt" />
-    2. <label>姓名：<input type="text" /></label>
-```
-
-* textarea : 文本域没有value属性，填入的即是value。
-
-* select 下拉列表 
-
-    内部属性：multiple 可以设置多选:multiple="multiple"
-    size="2"，可以设置显示条数。
-
-    内部标签：option :列出列表 
-
-* file 控件 ：文件上传专用
-
-* hidden 隐藏域 ：网页上看不到，但是表单提交会自动提交到服务器。
-```
-    如，<input type="hidden" id="userid" value="userid"/>
-```
-
-* readonly ：只读，使用该属性，可以提交数据给服务器；
-
-* disabled ：只读，使用该属性，并且不能提交给服务器(即使有name)。
-
-* maxlength ：控制输入框中的字符长度。
-
+  
 * aria-label : 当 input 组件获得焦点时，屏幕阅读器会读出相应的label文本。
 
 * aria-labelledby ： 当想要的标签文本已在其他元素中存在时，可以使用aria-labelledby，并将其值为所有读取的元素的id。
@@ -149,9 +18,6 @@
 
 * onblur : 当用户离开输入字段时对其进行验证。
 
-* text-decoration : 下划线
-
-* list-style-type: none; 可以去掉列表的前面的黑点
 
 
 ## class 和 id 的清晰的区别：
@@ -163,8 +29,6 @@
 ## class = "sr-only",screen reader only
 * 说明：用于为视觉残疾人员，可以"读出"屏幕图片。
 
-
-
 ## margin 的默认顺序：
 * 上右下左：顺时针。
 
@@ -173,61 +37,6 @@
 2. 如果没有bottom值，则使用top代替；
 
 3. 如果没有right值，则使用top值代替。
-
-
-## CSS 
-    * CSS：Cascading Style Sheet 层叠样式表
-
-    * CSS的作用：设置HTML页面中的某些元素的样式。(CSS好比化妆品)
-
-    * 在HTML中使用CSS的三种方式：
-
-        1. 在标签内部使用style属性来设置元素的CSS样式，这种方式即为内联定义方式(Inline Styles)
-            语法格式：
-            <标签 style="样式名:样式值;样式名:样式值;样式名:样式值;..."></标签>
-
-        2. 在head标签中使用style块，这种方式称为样式块方式。
-            语法格式：
-            <head>
-                <style type="text/css">
-                    选择器{
-                        样式名 : 样式值;
-                        样式名 : 样式值;
-                        ...
-                    }
-                    选择器{
-                        样式名 : 样式值;
-                        样式名 : 样式值;
-                        ...
-                    }
-                </style>
-            </head>
-
-        3. 链入外部样式表文件，这种方式最常用。(将样式写到一个独立的xxx.css文件当中，在需要的网页上直接引入css文件，样式就引入了)
-            语法格式：
-                <link type="text/css" rel="stylesheet" href="css文件的路径"/>
-
-        这种方式易维护，维护成本较低。
-            xxx.css文件
-                1. html中引入了
-                2. html中引入了
-                3. html中引入了
-                4. html中引入了
-
-    * 选择器：
-        1. id选择器
-            #id名{}
-        2. 类选择器 
-            .类名{}
-        3. 标签选择器
-            标签名{}
-
-
-## list 的ul 和 li
-
-    * list-style-type: none; 去掉列表前的黑点
-
-    
 
 ## 边框的宽和高的计算
 
@@ -423,6 +232,3 @@
         获取当前web应用的根，pageContext内置对象。对于pageContext应用最多的。
    
 ```
-
-
-### 

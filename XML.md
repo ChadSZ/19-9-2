@@ -128,7 +128,3 @@
 
 ## MyEclipse中如何添加web.xml文件？
     * 在需要添加web.xml文件的项目上右键点击，依次选择MyEclipse->Generate Deployment Descriptor Stub，即可生成web.xml
-
-## copy 类的全名：
-
-**copy Qualified name**
