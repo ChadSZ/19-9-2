@@ -5,7 +5,7 @@
 * JSP 的代码块也称为JSP小脚本，以<% %>来包围。可以写到任意位置。
 
 ## JSP 的代码块
-
+* JSP 的代码块也称为JSP小脚本，以<% %>来包围
 注意：
 
 1. 声明的变量不能用修饰符修饰。
@@ -22,6 +22,12 @@
 * <%= %>
 
     如，count=<%=cout %>
+
+## 属性errorPage 和 IsErrorPage
+* <%@ page errorPage="/error.jsp"%>，这个属性用于当页面出现错误时，会跳转到该路径下的页面。
+
+* <%@ page isErrorPage="true"%>，可以通过该页面显示错误异常信息。 ex = <%=exception.getMessage()%>;
+
 
 
 ## EL 表达式

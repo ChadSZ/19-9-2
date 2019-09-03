@@ -68,13 +68,27 @@
 
 * 完成该项目的步骤大体如下：
 
-1. 首先找名词：学生，构建实体类
+1. 首先找名词：学生，构建实体类javabean
 
 2. 再找动词，登录和注册，在servlet 中构建登录和注册功能。
 
-3. 在service层中，构建校验方法，
+    * 步骤：
+        1. 接收请求参数：request
+            1. 请求转发 request.getRequestDispatcher(xxx).forward(req,res);
+            2. 重定向 response.sendRedirect(request.getContextPath()+xxx);
+                * 两者区别：
+                    请求转发是一个请求一次响应，而重定向是两次请求两次响应。
+                    请求转发地址不变化，而重定向会显示后一个请求的地址
+                    请求转发只能转发到本项目其它Servlet，而重定向不只能重定向到本项目的其它Servlet，还能定向到其它项目
+                    请求转发是服务端行为，只需给出转发的Servlet路径，而重定向需要给出requestURI，既包含项目名！
 
-4. 在Dao层，定义工具类，并且实现数据库的连接。
+        2. 创建Service对象，在service层中，构建校验方法checkUser()
+        
+        3. 调用Service对象的checkUser()，方法对用户进行验证。返回一个Student对象。可以通过该对象获取全部信息。
+        4. 验证通过，则跳转到系统主页index.jsp
+        5. 验证未通过，则跳转到登录页面，让用户再次输入登录信息。
+
+3. 在Dao层，定义工具类，并且实现数据库的连接。
 
 
 

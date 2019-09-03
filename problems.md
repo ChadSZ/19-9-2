@@ -41,3 +41,6 @@
 * 如何在myeclipse中创建dynamic web project:
 
     已解决：file—new-project—勾选“Show all wizard”—web—下拉菜单中就出现了Dynamic Web Project的选项。
+
+
+* 如何将HTML 文档转为 JSP文档？
