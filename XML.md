@@ -1,5 +1,7 @@
 ## XML 语言基础
 
+* **注意：所有的XML内容都必须卸载根目录内部**
+
 1. XML 语言声明-文档声明
 
     <? xml version="1.0" encoding="utf-8" standalone="yes" ?>
@@ -128,3 +130,5 @@
 
 ## MyEclipse中如何添加web.xml文件？
     * 在需要添加web.xml文件的项目上右键点击，依次选择MyEclipse->Generate Deployment Descriptor Stub，即可生成web.xml
+
+

@@ -232,3 +232,31 @@
         获取当前web应用的根，pageContext内置对象。对于pageContext应用最多的。
    
 ```
+
+## 设置border渐变色
+1.
+```
+button{
+        background:transparent;
+        color:#23b7cb;
+        font-size:15px;
+        padding:5px 15px;
+        border:1px transparent solid;
+        border-image:linear-gradient(to right,#000718,#23b7cb) 1 10;
+     }
+```
+**注意问题：border-image的使用是不能实现圆角的效果，各位需要注意这个属性**
+
+2. 1
+```
+     button:after{
+         content:'';
+         position: absolute;
+        top: -3px; bottom: -3px;
+        left: -3px; right: -3px;
+        background: linear-gradient(135deg,#000781, #23b7cb);
+        border-radius: 30px;
+        content: '';
+        z-index: -1;
+     }
+```
