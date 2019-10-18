@@ -338,7 +338,7 @@ compilers are required to generate an error message.
 3. 类加载器类型：
    1. 引导类加载器(通过C完成代码编写)
       1. 它用来加载java的核心库(JAVA_HOME/JRE/lib/rt.jar，或sun.boot.class.path路径下的内容)，是用原生代码来实现的，并不继承自java.lang.ClassLoader。
-      2. 加载扩展类和应用程序类加载器。并制定他们的父类加载器。
+      2. 加载扩展类和应用程序类加载器。并指定他们的父类加载器。
    2. 扩展类加载器(通过JAVA完成代码编写，继承自java.lang.ClassLoader)
       1. 用来加载java的扩展库(JAVA_HOME/jre/ext/*.jar，或java.ext.dirs路径下的内容)。Java虚拟机的实现会提供一个扩展库目录。该类加载器在此目录里面查找并加载java类。
       2. 由sun.misc.Launcher$ExtClassLoader实现。
@@ -355,6 +355,18 @@ compilers are required to generate an error message.
 5. 类加载器的代理模式
    1. 代理模式
       1. 交给其他加载器来加载指定的类
+   2. 双亲委托机制
+      1. 就是某个特定的类加载器在接收到加载类的请求时，首先将加载任务委托给父类加载器，依次追溯，知道最高的爷爷辈的，如果父类加载器可以完成类加载任务，就成功返回；只有父类架子啊器无法完成此加载任务时，才自己去加载。
+      2. 双亲委托机制是为了保证java核心库的类型安全。
+         1. **这种机制就保证不会出现用户自己能定义java.lang.Object类的情况。**
+      3. 类加载器除了用于加载类，也是安全的最基本屏障。
+   3. 双亲委托机制是代理模式的一种
+      1. 不是所有的类加载器都采用双亲委托机制。
+      2. tomcat服务器类加载器也使用代理模式，不同在于，tomcat首先尝试去加载某个类，如果找不到再代理给父类加载。与一般类加载器顺序相反。
+
+6. 自定义类加载器
+   1. 继承：java.lang.ClassLoader
+
 
 
 ## 快捷键快速查询类的树状结构
@@ -381,4 +393,7 @@ compilers are required to generate an error message.
    4. 对于线程安全的理解：
       1. 对于变量创建后，是否有全局变量。全局变量创建后会对线程安全造成影响。
          1. 对于我们创建的flowerService变量，其创建后，有全局变量FlowerDao，但仅是一个dao，该对象创建后，内部并没有全局对象。所以不会对线程造成影响。
-   5. 
+
+
+
+* 前端(front)设计模式：用一个控制器作为总入口，通过不同情况分发给其他的内容

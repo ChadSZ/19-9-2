@@ -23,7 +23,7 @@
 * 解决2016版闪退问题：  MyEclipse 2016 Stable 1.0 的安装目录下面的 configuration\org.eclipse.osgi\， 将该文件夹下的内容清空，再启动myeclipse 
 
 
-* 同一台电脑安装多个myeclipse ，在破解的过程中一次性从低到高依次破解多个版本的myeclipse。
+* 同一台电脑安装多个myeclipse ，在破解的过程中依次性从低到高依次破解多个版本的myeclipse。
 
 
 * 关于1.8JDK：
@@ -79,3 +79,18 @@
 ## pycharm安装及下载
 1. 下载：[pycharm](https://www.jetbrains.com/pycharm/download/#section=windows)
 2. 安装步骤：https://blog.csdn.net/sunshine_lyn/article/details/81158855
+
+
+
+## myeclipse设置编码方式：
+general -> workspace -> text file encoding
+
+
+* 笔记本电脑 装win7系统的时候 到安装程序正在更新注册表设置的 时候 就卡住了
+1. U盘做成了支持UEFI启动的U盘，而你进winpe是从uefi启动U盘进去的，在uefi的pe下做mbr系统分区和还原的ghost系统；也就是说如果要做传统的mbr+bios启动，就得用不支持uefi启动的U盘来给系统分区和还原装系统。
+2. （大多数是这个原因）、你想在uefi+gpt分区模式下ghost装win7或者是装原版iso镜像系统，其他都设置好了，但你没有打开bios里的csm选项，因为win7 64位对uefi并不完全支持，所以必须打开这个csm兼容模式才行。
+
+
+## myeclpse16工程出现红色感叹号
+1. 重新添加build path
+2. 删除该工程，并重新添加
