@@ -37,3 +37,9 @@
 
 7. you-get 下载
    * you-get -o F:/AA -O cc "https://www.bilibili.com/video/av6778814/?from=search&seid=14154322691319558545"：下载到指定目录下
+   * you-get --playlist 本地保存地址 链接
+   * you-get --playlist -o 本地保存位置 下载地址
+
+8. you-get 更新
+   1. pip3 install --upgrade you-get
+   2. you-get https://github.com/soimort/you-get/archive/master.zip
